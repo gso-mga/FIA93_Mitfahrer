@@ -4,8 +4,10 @@ const mysql = require('mysql');
 const port = 7000;
 
 app.set('view engine', 'ejs')
+console.log(__dirname);
+app.use('/public', express.static(__dirname + '/public'));
 
-const connection = mysql.createConnection({
+/*const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'mitfahrer',
   password : 'password',
@@ -15,7 +17,7 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
     if(err) throw err;
     console.log('Connected to MySQL Server!');
-});
+});*/
 
 
 app.get("/",(req,res) => {
@@ -32,7 +34,7 @@ app.get("/",(req,res) => {
    res.render("index");
 });
 
-const appRouter = require('../routes/routes');
+const appRouter = require('./routes/routes');
 
 app.use('/app', appRouter);
 
