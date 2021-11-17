@@ -32,9 +32,9 @@ app.get("/",(req,res) => {
    res.render("index");
 });
 
-app.get("./login", (req, res) => {
-    res.render("./Login");
-});
+const appRouter = require('./routes/routes');
+
+app.use('/app', appRouter);
 
 app.listen(port, () => {
     console.log('Server is running at port ' + port);
