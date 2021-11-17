@@ -6,7 +6,10 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-    console.log(req.body);
+    console.log(req.body.mail);
+    if (isGSOMail(req.body.mail)){
+
+    }
     res.send({'message': 'success'});
 });
 
