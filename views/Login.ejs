@@ -10,16 +10,16 @@
     <div class="window">
         <img src="/public/LOGO-GSO_neu.png" class="logo" alt="">
         <div class="login">
-            <form class="loginform" action="">
-                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold;">Bitte geben Sie ihre Nuterdaten ein</p>
+            <form class="loginform" action="/app/login" method="POST">
+                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold;">Bitte geben Sie ihre Nutzerdaten ein</p>
                 <div class="mail">
                     <input name="mail" placeholder="E-Mail Adresse..." type="text">    
                 </div>
                 <div class="pw">
-                    <input name="pw" placeholder="Passwort..." type="text">
+                    <input name="pw" placeholder="Passwort..." type="password">
                 </div>
             </form>
-            <a href="/app/benutzerAnlegen" class="myButton">Weiter</a>
+            <button type="submit" class="myButton">Weiter</button>
         </div>
     </div>
   </body>

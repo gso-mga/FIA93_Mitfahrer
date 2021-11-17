@@ -5,6 +5,11 @@ router.get("/login", (req, res) => {
     res.render("Login");
 });
 
+router.post("/login", (req, res) => {
+    console.log(req.body);
+    res.send("HI");
+});
+
 router.get("/auswahl", (req, res) => {
     res.render("Auswahl");
 });

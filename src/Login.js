@@ -10,12 +10,10 @@ const pool = mysql.createPool({
 });
 
 function isGSOMail(userMail){   
-    if(userMail.indexOf('@gso.schule.koeln')){
+    if(userMail.indexOf('@gso.schule.koeln'))
         return true;
-    }
-    else {
-        return false;
-    }
+    return false;
+
 }
 
 function isMailRegistered(userMail){
