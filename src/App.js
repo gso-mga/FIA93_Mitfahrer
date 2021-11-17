@@ -32,7 +32,7 @@ app.get("/",(req,res) => {
    res.render("index");
 });
 
-const appRouter = require('./routes/routes');
+const appRouter = require('../routes/routes');
 
 app.use('/app', appRouter);
 
