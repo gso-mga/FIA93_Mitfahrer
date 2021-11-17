@@ -1,15 +1,26 @@
-async function fetchInput(mail, pw) {
+async function fetchInput(url) {
     (async () => {
-        const rawResponse = await fetch('/app/login', {
+        const rawResponse = await fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: mail, password: pw })
+            body: JSON.stringify(getAllInputs())
         });
         const content = await rawResponse.json();
 
         console.log(content);
     })();
+}
+
+function getAllInputs(){
+    var inputs, body = {};
+
+    inputs = document.getElementsByTagName('input');
+    for (i = 0; i < inputs.length; ++i){
+        console.log(inputs[i].name + ' ' + inputs[i].value);
+        body[inputs[i].name] = inputs[i].value;
+    };
+    return body;
 }
