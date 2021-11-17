@@ -16,7 +16,7 @@ connection.connect((err) => {
 
 
 app.get("/",(req,res) => {
-    pool.getConnection((err, connection) => {
+    /*pool.getConnection((err, connection) => {
         if(err) throw err;
         console.log('connected as id ' + connection.threadId);
         connection.query('SELECT * from users LIMIT 1', (err, rows) => {
@@ -24,9 +24,10 @@ app.get("/",(req,res) => {
             if(err) throw err;
             console.log('The data from users table are: \n', rows);
         });
-    });
+    });*/
+    res.sendFile('index.html',{ root: './html/' });
 });
 
-app.listen(3000, () => {
-    console.log('Server is running at port 3000');
+app.listen(7000, () => {
+    console.log('Server is running at port 7000');
 });
