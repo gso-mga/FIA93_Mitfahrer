@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Titel</title>
     <link rel="stylesheet" href="/public/styles.css">
+    <script src="/public/public.js"></script>
   </head>
   <body>
     <div class="window">
         <img src="/public/LOGO-GSO_neu.png" class="logo" alt="">
         <div class="login">
-            <form class="loginform" action="/app/login" method="POST">
+            <form class="loginform" action="app/login" method="POST" id="loginForm">
                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold;">Bitte geben Sie ihre Nutzerdaten ein</p>
                 <div class="mail">
-                    <input name="mail" placeholder="E-Mail Adresse..." type="text">    
+                    <input name="mail" placeholder="E-Mail Adresse..." type="text" id="mail">    
                 </div>
                 <div class="pw">
-                    <input name="pw" placeholder="Passwort..." type="password">
+                    <input name="pw" placeholder="Passwort..." type="password" id="pw">
                 </div>
             </form>
-            <button type="submit" class="myButton">Weiter</button>
+            <button onclick="fetchInput(document.getElementById('mail').value,document.getElementById('pw').value)" type="submit" class="myButton">Weiter</button>
         </div>
     </div>
   </body>

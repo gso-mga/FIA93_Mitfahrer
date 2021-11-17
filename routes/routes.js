@@ -7,7 +7,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
     console.log(req.body);
-    res.send("HI");
+    res.send({'message': 'success'});
 });
 
 router.get("/auswahl", (req, res) => {
