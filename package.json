@@ -1,0 +1,23 @@
+{
+  "name": "FIA93_Mitfahrer",
+  "version": "1.0.0",
+  "description": "AHHHHHH",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gso-mga/FIA93_Mitfahrer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gso-mga/FIA93_Mitfahrer/issues"
+  },
+  "homepage": "https://github.com/gso-mga/FIA93_Mitfahrer#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
