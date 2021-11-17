@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const mysql = require('mysql');
+const port = 7000;
+
+app.set('view engine', 'ejs')
 
 const connection = mysql.createConnection({
   host     : 'localhost',
@@ -25,9 +28,10 @@ app.get("/",(req,res) => {
             console.log('The data from users table are: \n', rows);
         });
     });*/
-    res.sendFile('index.html',{ root: './html/' });
+   // res.sendFile('index.html',{ root: './html/' });
+   res.render("index");
 });
 
-app.listen(7000, () => {
-    console.log('Server is running at port 7000');
+app.listen(port, () => {
+    console.log('Server is running at port ' + port);
 });
