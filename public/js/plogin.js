@@ -15,7 +15,3 @@ $(document).ready(function(){
     });*/
 
   });
-
-async function getLoginData(url){
-    
-}
