@@ -33,17 +33,18 @@ router.post("/login", (req, res) => {
     }
     else{
         result.gso = 'true';
-    
+        
 
         pool.query(query,(err, data) => {
             if(err) {
                 result['registered'] = false;
+                console.log(data);
             }
             else{
                 result['registered'] = true;
                 queryData = data;
                 accountExists = true;
-                console.log(data);
+                
                 
                 if(req.body.pw = data.passwort){
                     result.loggedIn = 'true';
