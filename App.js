@@ -8,7 +8,6 @@ var jquery = require('jquery');
 app.set('view engine', 'ejs');
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
-app.use('/jquery.session', express.static(__dirname + '/node_modules/jquery.session/'));
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
 

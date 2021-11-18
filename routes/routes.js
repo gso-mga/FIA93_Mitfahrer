@@ -1,5 +1,4 @@
 const express = require('express');
-//var login     = require('../src/Login.js');
 const router  = express.Router();
 
 router.get("/login", (req, res) => {
@@ -7,14 +6,14 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-    console.log(req.body.mail);
+   // console.log(req.body.mail);
   
-/*    if(login.isMailRegistered(req.body.mail)){
-        res.send({'gso': 'true'})
+    if(req.body.mail.includes('@gso.schule.koeln')){
+        res.send({'gso': 'true'});
     }
     else{
-        res.send({'gso': 'false'})
-    }*/
+        res.send({'gso': 'false'});
+    }
 });
 
 router.get("/auswahl", (req, res) => {
