@@ -9,8 +9,6 @@ async function fetchInput(url) {
             body: JSON.stringify(getAllInputs())
         });
         const content = await rawResponse.json();
-        console.log(content);
-        return content;
     })();
 }
 
@@ -42,3 +40,4 @@ async function getInput(url) {
         }
     })();
 }
+

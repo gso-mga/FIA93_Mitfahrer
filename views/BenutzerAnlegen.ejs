@@ -6,6 +6,9 @@
     <title>Mitfahrer App GSO</title>
     <link rel="icon" href="https://www.gso-koeln.de/wp-content/uploads/2019/10/ICON-GSO_URL.png" sizes="32x32">
     <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/jquery/jquery.js"></script>
+    <script src="/public/js/public.js"></script>
+
   </head>
   <body>
     <div class="window">
@@ -39,8 +42,9 @@
                 </div>
 
             </form>
-            <a href="/app/auswahl" class="myButton">Erstellen</a>
+            <button onclick="fetchInput('/app/BenutzerAnlegen')" type="submit" class="myButton">Weiter</button>
         </div>
     </div>
+    <div id="id" style="display: none;"></div>
   </body>
 </html>
