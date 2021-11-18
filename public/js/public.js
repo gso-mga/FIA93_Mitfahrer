@@ -17,14 +17,17 @@ function getAllInputs(){
 
     inputs = document.getElementsByTagName('input');
     for (i = 0; i < inputs.length; ++i){
-     //   console.log(inputs[i].name + ' ' + inputs[i].value);
         body[inputs[i].name] = inputs[i].value;
     };
-   // body.id = document.getElementById('id');
+    select = document.getElementsByTagName('select');
+    for (i = 0; i < select.length; ++i) {
+        body[select[i].name] = select[i].value;
+    };
+
     return body;
 };
 
-async function getInput(url) {
+async function getLogin(url) {
     (async () => {
         const rawResponse = await fetch(url, {
             method: 'POST',
@@ -35,10 +38,105 @@ async function getInput(url) {
             body: JSON.stringify(getAllInputs())
         });
         const content = await rawResponse.json();
-
-        if(content.gso){
-            document.getElementById('pw').style.display = 'block';
+        if(content.gso == 'false'){
+            $('.message').text('Bitte geben Sie eine GSO-Email ein!');
+            $('.message').css({ "border": '#FF0000 1px solid' });
+        }else{
+            if(content.registered == false){
+                window.location.href = "//localhost:7000/app/benutzeranlegen"
+            }else{
+                document.getElementById('pw').style.display = 'block';
+                if(content.loggedIn == 'true'){
+                    window.location.href = "//localhost:7000/app/auswahl"
+                }
+            }            
         }
     })();
+}
+
+async function fetchSession() {
+    (async () => {
+        const rawResponse = await fetch('/app/session', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        });
+        content = await rawResponse.json();
+
+        if(content.loggedIn == 'true'){
+            window.location.href = "//localhost:7000/app/auswahl"
+        }else{
+            $('#mail').val(content.email);
+        }
+    })();
+}
+
+async function fetchBenutzerAnlegen() {
+    (async () => {
+        const rawResponse = await fetch('/app/getId', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(getAllInputs())
+        });
+        const content = await rawResponse.json();
+        console.log(content);
+    })();
+}
+
+
+async function fetchRegister(url) {
+    (async () => {
+        const rawResponse = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(getAllInputs())
+        });
+        const content = await rawResponse.json();
+    })()
+}
+
+async function fetchUserData() {
+    (async () => {
+        const rawResponse = await fetch('/app/benutzerfetchen', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        });
+        const content = await rawResponse.json();
+        console.log(content);
+        $('#vorname').val(content.vorname);
+        $('#nachname').val(content.nachname);
+        $('#adresse').val(content.adresse);
+        $('#plz').val(content.plz);
+        $('#ort').val(content.ort);
+        $('.geschlecht').val(content.geschlecht);
+
+    })()
+}
+
+async function saveUser() {
+    (async () => {
+        const rawResponse = await fetch('/app/benutzeraendern', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }, body: JSON.stringify(getAllInputs())
+        });
+        const content = await rawResponse.json();
+        
+        console.log(content);
+
+    })()
 }
 

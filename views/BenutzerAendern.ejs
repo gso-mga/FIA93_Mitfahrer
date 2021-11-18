@@ -8,6 +8,7 @@
     <link rel="icon" href="https://www.gso-koeln.de/wp-content/uploads/2019/10/ICON-GSO_URL.png" sizes="32x32">
     <script src="/jquery/jquery.js"></script>
     <script src="/public/js/public.js"></script>
+    <script src="/public/js/edituser.js"></script>
     
   </head>
   <body>
@@ -17,22 +18,22 @@
             <form class="loginform" action="">
                 <p style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold;">Bitte geben Sie ihre Profildaten ein</p>
                 <div class="vorname">
-                    <input name="vorname" placeholder="Vorname..." type="text">
+                    <input name="vorname" placeholder="Vorname..." type="text" id="vorname">
                 </div>
                 <div class="nachname">
-                    <input name="nachname" placeholder="Nachname..." type="text">
+                    <input name="nachname" placeholder="Nachname..." type="text" id="nachname">
                 </div>
                 <div class="adresse">
-                    <input name="adresse" placeholder="Straße & Hausnr..." type="text">
+                    <input name="adresse" placeholder="Straße & Hausnr..." type="text" id="adresse">
                 </div>
                 <div class="plz">
-                    <input name="plz" placeholder="PLZ..." type="text">
+                    <input name="plz" placeholder="PLZ..." type="text" id="plz">
                 </div>
                 <div class="ort">
-                    <input name="ort" placeholder="Ort..." type="text">
+                    <input name="ort" placeholder="Ort..." type="text" id="ort">
                 </div>
                 <div class="select Geschlecht">
-                    <select>
+                    <select name="geschlecht">
                         <option>Geschlecht</option>
                         <option>Weiblich</option>
                         <option>Männlich</option>

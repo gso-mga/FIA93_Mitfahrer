@@ -7,6 +7,7 @@
     <link rel="icon" href="https://www.gso-koeln.de/wp-content/uploads/2019/10/ICON-GSO_URL.png" sizes="32x32">
     <link rel="stylesheet" href="/public/css/styles.css">
     <script src="/jquery/jquery.js"></script>
+    <script src="/cookies/js.cookie.js"></script>
     <script src="/public/js/public.js"></script>
     <script src="/public/js/plogin.js"></script>
   </head>
@@ -15,7 +16,7 @@
         <img src="/public/img/LOGO-GSO_neu.png" class="logo" alt="">
         <div class="login">
             <form class="loginform" action="app/login" method="POST" id="loginForm">
-                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold;">Bitte geben Sie ihre Nutzerdaten ein</p>
+                <p class="message" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold;">Bitte geben Sie ihre Nutzerdaten ein</p>
                 <div class="mail">
                     <input name="mail" placeholder="E-Mail Adresse..." type="text" id="mail">    
                 </div>
@@ -23,13 +24,8 @@
                     <input name="pw" placeholder="Passwort..." type="password" id="pw">
                 </div>
             </form>
-            <button onclick="getInput('/app/login')" type="submit" class="myButton">Weiter</button>
+            <button onclick="getLogin('/app/login')" type="submit" class="myButton">Weiter</button>
         </div>
     </div>
-<<<<<<< HEAD
-    <div id='isGSOMail' display='none'></div>
-    <div id="id" style="display: none;"></div>
-=======
->>>>>>> c1232ab919b65847f99deef660ac59fcf516873f
   </body>
 </html>
