@@ -3,13 +3,18 @@ const express = require("express");
 const app = express();
 const mysql = require('mysql');
 const port = 7000;
+var jquery = require('jquery');
 
 app.set('view engine', 'ejs');
 app.use('/public', express.static(__dirname + '/public'));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-/*const connection = mysql.createConnection({
+
+
+
+const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'mitfahrer',
   password : 'password',
@@ -19,7 +24,7 @@ app.use(bodyParser.json());
 connection.connect((err) => {
     if(err) throw err;
     console.log('Connected to MySQL Server!');
-});*/
+});
 
 
 app.get("/",(req,res) => {
