@@ -13,17 +13,17 @@ app.use(bodyParser.json());
 
 
 
-const pool = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'mitfahrer',
-  password : 'password',
-  database : 'mitfahrer_app'
-});
+// const pool = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'mitfahrer',
+//   password : 'password',
+//   database : 'mitfahrer_app'
+// });
 
-pool.connect((err) => {
-    if(err) throw err;
-    console.log('Connected to MySQL Server!');
-});
+// pool.connect((err) => {
+//     if(err) throw err;
+//     console.log('Connected to MySQL Server!');
+// });
 
 
 app.get("/",(req,res) => {

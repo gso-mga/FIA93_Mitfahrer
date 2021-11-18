@@ -8,9 +8,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
     console.log(req.body.mail);
-    if(login.foo(req.body.mail)){
-        console.log('YAHSASID');
-    }
+  
     if(req.body.mail.indexOf('@gso.schule.koeln')){
         res.send({'gso': 'true'});
     }
