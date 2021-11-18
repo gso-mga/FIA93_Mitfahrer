@@ -8,6 +8,7 @@ var jquery = require('jquery');
 app.set('view engine', 'ejs');
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+app.use('/jquery.session', express.static(__dirname + '/node_modules/jquery.session/'));
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -27,7 +28,7 @@ app.use(bodyParser.json());
 
 
 app.get("/",(req,res) => {
-    let select = 'select 1 from dual;';
+   /* let select = 'select 1 from dual;';
     let query = mysql.format(select);
     pool.query(query,(err, data) => {
     if(err) {
@@ -35,7 +36,7 @@ app.get("/",(req,res) => {
     }
     console.log(data);
     });
-    console.log()
+    console.log()*/
    res.render("index");
 });
 
