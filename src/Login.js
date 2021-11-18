@@ -31,6 +31,11 @@ function isMailRegistered(userMail){
     });
 }
 
+
 setTimeout(() => {
     isMailRegistered('banane@gso.schule.koeln');
 },100);
+
+module.exports = {
+    foo: isGSOMail(userMail)
+  };

@@ -1,5 +1,6 @@
 const express = require('express');
-const router = express.Router();
+var login     = require('../src/Login.js');
+const router  = express.Router();
 
 router.get("/login", (req, res) => {
     res.render("Login");
@@ -7,8 +8,12 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
     console.log(req.body.mail);
-    if(req.body.mail.indexOf('@gso.schule.koeln'))
+    if(login.foo(req.body.mail)){
+        console.log('YAHSASID');
+    }
+    if(req.body.mail.indexOf('@gso.schule.koeln')){
         res.send({'gso': 'true'});
+    }
    // res.send({'message': 'success'});
 });
 
@@ -37,7 +42,7 @@ router.get("/fahrerdatenaendern", (req, res) => {
 });
 
 router.get("/fahrerdateneinstellen", (req, res) => {
-    res.render("Fahrerdatenseinstellen");
+    res.render("Fahrerdateneinstellen");
 });
 
 router.get("/fahrterstellen", (req, res) => {
