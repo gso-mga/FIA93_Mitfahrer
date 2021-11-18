@@ -23,4 +23,4 @@ function getAllInputs(){
         body[inputs[i].name] = inputs[i].value;
     };
     return body;
-}
+};
