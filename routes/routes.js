@@ -7,10 +7,9 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
     console.log(req.body.mail);
-    if (isGSOMail(req.body.mail)){
-
-    }
-    res.send({'message': 'success'});
+    if(req.body.mail.indexOf('@gso.schule.koeln'))
+        res.send({'message': 'success'});
+   // res.send({'message': 'success'});
 });
 
 router.get("/auswahl", (req, res) => {
