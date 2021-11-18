@@ -16,7 +16,7 @@ function isGSOMail(userMail){
 
 }
 
-function isMailRegistered(userMail){
+export function isMailRegistered(userMail){
     let selectQuery = 'SELECT * FROM mitfahrer_app.benutzer WHERE = ?';    
     let query = mysql.format(selectQuery,[userMail]);
 
@@ -31,8 +31,8 @@ function isMailRegistered(userMail){
     });
 }
 
-
+/*
 setTimeout(() => {
     isMailRegistered('banane@gso.schule.koeln');
-},100);
+},100);*/
 

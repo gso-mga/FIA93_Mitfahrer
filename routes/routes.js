@@ -9,10 +9,12 @@ router.get("/login", (req, res) => {
 router.post("/login", (req, res) => {
     console.log(req.body.mail);
   
-    if(req.body.mail.indexOf('@gso.schule.koeln')){
-        res.send({'gso': 'true'});
+    if(login.isMailRegistered(req.body.mail)){
+        res.send({'gso': 'true'})
     }
-   // res.send({'message': 'success'});
+    else{
+        res.send({'gso': 'false'})
+    }
 });
 
 router.get("/auswahl", (req, res) => {
