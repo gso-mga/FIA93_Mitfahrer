@@ -38,7 +38,7 @@ router.post("/login", (req, res) => {
         pool.query(query,(err, data) => {
             if(err) {
                 result['registered'] = false;
-                console.log(data);
+                console.log(err);
             }
             else{
                 result['registered'] = true;
