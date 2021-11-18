@@ -1,5 +1,5 @@
 const express = require('express');
-var login     = require('../src/Login.js');
+//var login     = require('../src/Login.js');
 const router  = express.Router();
 
 router.get("/login", (req, res) => {
@@ -9,12 +9,12 @@ router.get("/login", (req, res) => {
 router.post("/login", (req, res) => {
     console.log(req.body.mail);
   
-    if(login.isMailRegistered(req.body.mail)){
+/*    if(login.isMailRegistered(req.body.mail)){
         res.send({'gso': 'true'})
     }
     else{
         res.send({'gso': 'false'})
-    }
+    }*/
 });
 
 router.get("/auswahl", (req, res) => {
