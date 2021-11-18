@@ -43,10 +43,9 @@ router.post("/login", (req, res) => {
                 result['registered'] = true;
                 queryData = data;
                 accountExists = true;
-                console.log(result);
+                console.log(data);
                 
                 if(req.body.pw = data.passwort){
-                    console.log('query went through');
                     result.loggedIn = 'true';
                     result.id = data.id;
                 }
