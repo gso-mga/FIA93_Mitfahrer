@@ -22,6 +22,7 @@ function getAllInputs(){
      //   console.log(inputs[i].name + ' ' + inputs[i].value);
         body[inputs[i].name] = inputs[i].value;
     };
+   // body.id = document.getElementById('id');
     return body;
 };
 
