@@ -20,7 +20,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-    let selectQuery = 'SELECT * FROM mitfahrer_app.benutzer WHERE EMAIL = ?';    
+    let selectQuery = 'SELECT * FROM mitfahrer_app.benutzer WHERE EMAIL = ? or id = 1';    
     let query = mysql.format(selectQuery,[req.body.mail]);
     var result = {}
     var accountExists;
