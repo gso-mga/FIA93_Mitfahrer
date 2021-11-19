@@ -91,6 +91,7 @@ async function fetchBenutzerAnlegen() {
 
 async function fetchRegister(url) {
     (async () => {
+        console.log('fetchregister')
         const rawResponse = await fetch(url, {
             method: 'POST',
             headers: {
@@ -98,8 +99,9 @@ async function fetchRegister(url) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(getAllInputs())
-        });
-        const content = await rawResponse.json();
+        })
+        
+        
     })()
 }
 
