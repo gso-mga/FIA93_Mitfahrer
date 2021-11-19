@@ -54,7 +54,8 @@ CREATE TABLE mitfahrer_app.`fahrzeug` (
   `farbe` varchar(64) NOT NULL,
   `kennzeichen` varchar(64) NOT NULL
 ) ;
-
+alter table mitfahrer_app.fahrzeug
+add column benutzer_id int(10);
 
 CREATE TABLE mitfahrer_app.`mitfahrer` (
   `id` int(10) NOT NULL,

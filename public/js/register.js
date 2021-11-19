@@ -1,4 +1,4 @@
 window.onload = function () {
     fetchSession();
-    fetchBenutzerAnlegen();
+   // fetchBenutzerAnlegen();
 };

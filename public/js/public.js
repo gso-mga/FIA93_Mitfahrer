@@ -83,15 +83,13 @@ async function fetchBenutzerAnlegen() {
             },
             body: JSON.stringify(getAllInputs())
         });
-        const content = await rawResponse.json();
-        console.log(content);
     })();
 }
 
 
 async function fetchRegister(url) {
     (async () => {
-        console.log('fetchregister')
+        console.log('fetchregister2')
         const rawResponse = await fetch(url, {
             method: 'POST',
             headers: {
@@ -115,7 +113,6 @@ async function fetchUserData() {
             },
         });
         const content = await rawResponse.json();
-        console.log(content);
         $('#vorname').val(content.vorname);
         $('#nachname').val(content.nachname);
         $('#adresse').val(content.adresse);
@@ -142,3 +139,24 @@ async function saveUser() {
     })()
 }
 
+
+async function fetchInputFahrer(url) {
+    (async () => {
+        const rawResponse = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(getAllInputs())
+        });
+        const content = await rawResponse.json();
+    })();
+    if(content.message = 'success'){
+        console.log('Jey');
+        window.location.href = "//localhost:7000/app/fahrterstellen";
+
+    }else{
+        console.log('fuck');
+    }
+}

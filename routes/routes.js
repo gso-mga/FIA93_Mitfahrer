@@ -183,26 +183,6 @@ router.post("/benutzeranlegen", (req, res) => {
     }
 });
 
-router.post("/getId"), (req, res) => {
-    selectQuery = 'select * from mitfahrer_app.benutzer where email = ?';
-    query = mysql.format(selectQuery, [req.session.email]);
-
-    pool.query(query, (err, data) => {
-        if (err || !data[0]) {
-            console.log(err);
-            req.session.loggedIn = false;
-            result.loggedIn = false;
-        }
-        else {
-            req.session.loggedIn = true;
-            req.session.userId = data[0].id;
-            result.loggedIn = true;
-            result.id = String(data[0].id);
-        }
-        res.send(result);
-    })
-}
-
 router.post("/benutzerfetchen", (req, res) => {
     selectQuery = 'select * from mitfahrer_app.benutzer where id = ?';
     query = mysql.format(selectQuery, [req.session.userId]);
@@ -239,6 +219,44 @@ router.post("/benutzeraendern", (req, res) => {
         else {
             result.message = 'success';
 
+        }
+        res.send(result);
+    })
+});
+
+router.post("/getId"), (req, res) => {
+    selectQuery = 'select * from mitfahrer_app.benutzer where email = ?';
+    query = mysql.format(selectQuery, [req.session.email]);
+    console.log(req.session);
+
+    pool.query(query, (err, data) => {
+        if (err || !data[0]) {
+            console.log(err);
+            req.session.loggedIn = false;
+            result.loggedIn = false;
+        }
+        else {
+            req.session.loggedIn = true;
+            req.session.userId = data[0].id;
+            result.loggedIn = true;
+            result.id = String(data[0].id);
+        }
+    })
+}
+
+router.post("/fahrerdateneinstellen", (req, res) => {
+    let selectQuery = 'insert into mitfahrer_app.fahrzeug(modell, farbe, kennzeichen, benutzer_id, plaetze) values(?,?,?,?, 0)';
+    let query = mysql.format(selectQuery, [req.body.model, req.body.farbe, req.body.kennzeichen, req.session.userId]);
+    let result = {}
+
+    pool.query(query, (err, data) => {
+        if (err) {
+            console.log(err);
+            result.message = 'failure';
+        }
+        else {
+            result.message = 'success';
+            req.session.hasCar = true;
         }
         res.send(result);
     })
